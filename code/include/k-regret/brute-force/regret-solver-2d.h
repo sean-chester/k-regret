@@ -26,11 +26,11 @@ class Solver2d
   Dataset< 2 > data;
 
 public:
-  Solver2d( Dataset< 2 > const& input ) : data( input ) {}
+  explicit Solver2d( Dataset< 2 > const& input ) : data( input ) {}
   ~Solver2d() {}
 
   /** Retrieve the k-regret minimising set of size _r_ with respect to top-k preferences */
-  Solution representative_set( size_t const r, size_t const k ) const;
+  Solution operator () ( size_t const r, size_t const k ) const;
 };
 
 } // namespace BruteForce

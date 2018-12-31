@@ -23,7 +23,7 @@ Solution pad_with_zeroes( Dataset< 2 > const& data, size_t const result_size )
 namespace BruteForce {
 
 
-Solution Solver2d::representative_set( size_t const r, size_t const k ) const
+Solution Solver2d::operator () ( size_t const r, size_t const k ) const
 {
   if( r >= data.size() ) { return pad_with_zeroes( data, r ); }
 

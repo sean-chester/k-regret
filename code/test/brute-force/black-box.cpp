@@ -9,7 +9,7 @@ SCENARIO( "The brute-force algorithm is black-box tested on a 2d toy example", "
 
   GIVEN( "A toy input of 5 2d points" )
   {
-    BruteForce::Solver2d solver(
+    BruteForce::Solver2d solve(
       {
         { 1, { 0.00f, 1.00f } },
         { 2, { 1.00f, 0.00f } },
@@ -21,27 +21,18 @@ SCENARIO( "The brute-force algorithm is black-box tested on a 2d toy example", "
 
     WHEN( "A of size solution >= 5 is requested" )
     {
-      Solution const response1 = solver.representative_set(  5, 1 );
-      Solution const response2 = solver.representative_set( 10, 1 );
-
       THEN( "All points (and extra zero-padding, if necessary) are returned" )
       {
-        Solution const actual1 = { 1, 2, 3, 4, 5 };
-        Solution const actual2 = { 1, 2, 3, 4, 5, 0, 0, 0, 0, 0 };
-
-        CHECK( response1 == actual1 );
-        CHECK( response2 == actual2 );
+        CHECK( solve(  5, 1 ) == Solution{ 1, 2, 3, 4, 5 } );
+        CHECK( solve( 10, 1 ) == Solution{ 1, 2, 3, 4, 5, 0, 0, 0, 0, 0 } );
       }
     }
 
     WHEN( "Only 3 points should minimise regret with respect to top-1 choices" )
     {
-      Solution const response = solver.representative_set( 3, 1 );
       THEN( "The brute force method retrieves the three extreme points" )
       {
-        Solution const actual = { 1, 2, 3 };
-
-        CHECK( response == actual );
+        CHECK( solve( 3, 1 ) == Solution{ 1, 2, 3 } );
       }
     }
   }
