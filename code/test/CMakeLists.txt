@@ -6,7 +6,7 @@ add_executable(
 
 target_link_libraries( 
   unit_tests
-#    brute-force
+    brute-force
     gcov
 )
 

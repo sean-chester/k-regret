@@ -1,4 +1,4 @@
-# add_subdirectory( brute-force )
+add_subdirectory( brute-force )
 # add_subdirectory( common )
 
 add_executable(
@@ -17,6 +17,6 @@ set_target_properties(
 target_link_libraries(
   k-regret
     ${Boost_LIBRARIES}
-#    brute-force
+    brute-force
 #    common
 )
