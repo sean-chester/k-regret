@@ -2,6 +2,7 @@ add_executable(
   unit_tests
     unitTests.cpp
     contour/black-box.cpp
+    contour/geometry.cpp
 )
 
 target_link_libraries( 
