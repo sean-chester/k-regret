@@ -1,12 +1,12 @@
 add_executable(
   unit_tests
     unitTests.cpp
-    brute-force/black-box.cpp
+    contour/black-box.cpp
 )
 
 target_link_libraries( 
   unit_tests
-    brute-force
+    contour
     gcov
 )
 

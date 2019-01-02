@@ -1,15 +1,15 @@
 #include "catch2/catch.hpp"
 
-#include "k-regret/brute-force/regret-solver-2d.h"
+#include "k-regret/contour/regret-solver-2d.h"
 #include "k-regret/common/solution.h"
 
-SCENARIO( "The brute-force algorithm is black-box tested on a 2d toy example", "[brute-force][toy][black-box][2d]")
+SCENARIO( "The contour algorithm is black-box tested on a 2d toy example", "[contour][toy][black-box][2d]")
 {
   using namespace kregret;
 
   GIVEN( "A toy input of 5 2d points" )
   {
-    BruteForce::Solver2d solve(
+    Contour::Solver2d solve(
       {
         { 1, { 0.00f, 1.00f } },
         { 2, { 1.00f, 0.00f } },

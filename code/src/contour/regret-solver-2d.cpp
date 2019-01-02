@@ -1,4 +1,4 @@
-#include "k-regret/brute-force/regret-solver-2d.h"
+#include "k-regret/contour/regret-solver-2d.h"
 
 
 namespace kregret {
@@ -20,8 +20,7 @@ Solution pad_with_zeroes( Dataset< 2 > const& data, size_t const result_size )
 
 } // namespace anonymous
 
-namespace BruteForce {
-
+namespace Contour {
 
 Solution Solver2d::operator () ( size_t const r, size_t const k ) const
 {
@@ -30,5 +29,5 @@ Solution Solver2d::operator () ( size_t const r, size_t const k ) const
   return {};
 }
 
-} // namespace BruteForce
+} // namespace Contour
 } // namespace kregret
