@@ -99,6 +99,7 @@ void
   {
     sort_points( sorted_points );
     set_point_indexes_and_populate_q( sorted_points, unsorted_points, event_q );
+    std::make_heap( event_q.begin(), event_q.end() );
   }
 
 } // namespace Contour

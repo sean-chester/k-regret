@@ -3,6 +3,7 @@ add_executable(
     unitTests.cpp
     contour/black-box.cpp
     contour/geometry.cpp
+    contour/plane-sweep.cpp
 )
 
 target_link_libraries( 
