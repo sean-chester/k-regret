@@ -7,11 +7,21 @@
 #define KREGRET_COMMON_GEOMETRY
 
 #include <optional>
+#include <cassert>
 
 #include "k-regret/common/data-point.h"
 
 namespace kregret {
 namespace geom{
+
+using Angle = float;
+
+inline
+std::optional< Angle > arctan_angle( Point< 2 > const p )
+{
+  if( p[ 0 ] == 0.0f ) { return std::nullopt; }
+  return p[ 1 ] / p[ 0 ];
+}
 
 /**
  * Given two 2d points, calculates the intersection point of their dual lines. Returns

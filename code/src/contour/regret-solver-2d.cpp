@@ -12,7 +12,7 @@ Solution pad_with_zeroes( Dataset< 2 > const& data, size_t const result_size )
     data.cbegin(),
     data.cend(),
     s.begin(),
-    []( auto const& p ){ return p.first; }
+    []( auto const& p ){ return p.id; }
   );
 
   return s;

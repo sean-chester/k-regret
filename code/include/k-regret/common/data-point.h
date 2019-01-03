@@ -13,13 +13,18 @@
 namespace kregret {
 
 using Value = float;
-using DataPointId = size_t;
+using RegretRatio = float;
+using DataPointId = uint32_t;
 
 template < size_t D >
   using Point = std::array< Value, D >;
 
 template < size_t D >
-  using DataPoint = std::pair< DataPointId, Point< D > >;
+  struct DataPoint
+  {
+    DataPointId id;
+    Point< D > coords;
+  };
 
 template < size_t D >
   using Dataset = std::vector< DataPoint< D > >;
