@@ -85,7 +85,10 @@ void
 Intersection
   RadialPlaneSweep::advance()
   {
-    return { 0, 0 };
+    auto const next_event = event_q.front();
+    std::pop_heap( event_q.begin(), event_q.end() );
+    event_q.pop_back();
+    return next_event.point_ids;
   }
 
 bool

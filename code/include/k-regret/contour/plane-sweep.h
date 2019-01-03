@@ -6,6 +6,8 @@
 #ifndef KREGRET_COMMON_PLANE_SWEEP
 #define KREGRET_COMMON_PLANE_SWEEP
 
+#include <iostream>
+
 #include "k-regret/common/data-point.h"
 #include "k-regret/contour/geometry.h"
 
@@ -15,7 +17,29 @@ namespace Contour{
 
 using PointIndex = uint32_t;
 using PointIndexMap = std::vector< PointIndex >;
-using Intersection = std::pair< DataPointId, DataPointId >;
+
+struct Intersection
+{
+  DataPointId i;
+  DataPointId j;
+
+  bool operator == ( Intersection const& other ) const
+  {
+    return ( i == other.i && j == other.j )
+        || ( j == other.i && i == other.j );
+  }
+  bool operator < ( Intersection const& other ) const
+  {
+    if( std::min( i, j ) == std::min( other.i, other.j ) )
+    {
+      return std::max( i, j ) < std::max( other.i, other.j );
+    }
+    else
+    {
+      return std::min( i, j ) < std::min( other.i, other.j );
+    }
+  }
+};
 
 class RadialPlaneSweep
 {
@@ -23,6 +47,16 @@ class RadialPlaneSweep
   {
     geom::Angle angle;
     Intersection point_ids;
+
+    bool operator < ( EventPoint const& other ) const
+    {
+      if( angle == other.angle ) { return point_ids < other.point_ids; }
+      return angle < other.angle;
+    }
+    bool operator == ( EventPoint const& other ) const
+    {
+      return angle == other.angle && point_ids == other.point_ids;
+    }
   };
   using EventPointQ = std::vector< EventPoint >;
 
@@ -47,6 +81,13 @@ public:
   bool is_done() const;
   void initialise();
 };
+
+inline
+std::ostream &
+  operator << ( std::ostream & stream, Intersection const& inter )
+  {
+    return stream << "(" << inter.i << ", " << inter.j << ")";
+  }
 
 } // namespace Contour
 } // namespace kregret
