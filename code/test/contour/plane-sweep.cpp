@@ -1,6 +1,6 @@
 #include "catch2/catch.hpp"
 
-#include "k-regret/contour/plane-sweep.h"
+#include "k-regret/contour/plane-sweep.hpp"
 
 namespace { // anonymous
 

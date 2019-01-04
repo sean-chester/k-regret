@@ -1,6 +1,6 @@
 #include "catch2/catch.hpp"
 
-#include "k-regret/contour/geometry.h"
+#include "k-regret/contour/geometry.hpp"
 
 SCENARIO( "The intersection of dual lines is computed", "[contour][geometry][2d]")
 {

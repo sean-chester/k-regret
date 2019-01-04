@@ -1,4 +1,4 @@
-#include "k-regret/contour/plane-sweep.h"
+#include "k-regret/contour/plane-sweep.hpp"
 
 #include <algorithm> // std::sort
 

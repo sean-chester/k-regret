@@ -7,7 +7,7 @@
 #include <boost/program_options.hpp> // for handling input arguments
 #include <chrono>                    // for timing
 
-#include "k-regret/common/hello-world.h"
+#include "k-regret/common/hello-world.hpp"
 
 int main( int argc, char** argv)
 {

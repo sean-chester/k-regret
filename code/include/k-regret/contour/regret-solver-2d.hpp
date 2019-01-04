@@ -9,8 +9,8 @@
 #define KREGRET_CONTOUR_2D
 
 
-#include "k-regret/common/solution.h"
-#include "k-regret/common/data-point.h"
+#include "k-regret/common/solution.hpp"
+#include "k-regret/common/data-point.hpp"
 
 
 namespace kregret {

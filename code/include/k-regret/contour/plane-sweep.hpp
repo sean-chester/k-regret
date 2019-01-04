@@ -9,8 +9,8 @@
 #include <iostream> // std::ostream
 #include <set>      // std::set
 
-#include "k-regret/common/data-point.h"
-#include "k-regret/contour/geometry.h"
+#include "k-regret/common/data-point.hpp"
+#include "k-regret/contour/geometry.hpp"
 
 namespace kregret {
 namespace Contour{

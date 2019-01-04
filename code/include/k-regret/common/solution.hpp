@@ -6,7 +6,7 @@
 #include <algorithm> // std::is_permutation
 
 
-#include "k-regret/common/data-point.h"
+#include "k-regret/common/data-point.hpp"
 
 namespace kregret {
 

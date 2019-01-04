@@ -1,7 +1,7 @@
 #include "catch2/catch.hpp"
 
-#include "k-regret/contour/regret-solver-2d.h"
-#include "k-regret/common/solution.h"
+#include "k-regret/contour/regret-solver-2d.hpp"
+#include "k-regret/common/solution.hpp"
 
 SCENARIO( "The contour algorithm is black-box tested on a 2d toy example", "[contour][toy][black-box][2d]")
 {

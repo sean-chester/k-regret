@@ -1,4 +1,4 @@
-#include "k-regret/contour/regret-solver-2d.h"
+#include "k-regret/contour/regret-solver-2d.hpp"
 
 
 namespace kregret {

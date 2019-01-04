@@ -9,7 +9,7 @@
 #include <optional>
 #include <cassert>
 
-#include "k-regret/common/data-point.h"
+#include "k-regret/common/data-point.hpp"
 
 namespace kregret {
 namespace geom{
