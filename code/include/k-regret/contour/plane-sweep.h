@@ -6,7 +6,8 @@
 #ifndef KREGRET_COMMON_PLANE_SWEEP
 #define KREGRET_COMMON_PLANE_SWEEP
 
-#include <iostream>
+#include <iostream> // std::ostream
+#include <set>      // std::set
 
 #include "k-regret/common/data-point.h"
 #include "k-regret/contour/geometry.h"
@@ -58,7 +59,11 @@ class RadialPlaneSweep
       return angle == other.angle && point_ids == other.point_ids;
     }
   };
-  using EventPointQ = std::vector< EventPoint >;
+
+  // using an ordered set instead of a vector/heap because we need to check whether a given
+  // event has already been inserted (don't want duplicate events), which is quite inefficient
+  // in a non-sorted (e.g., "heapified") vector.
+  using EventPointQ = std::set< EventPoint >;
 
 
   Dataset< 2 > sorted_points;
@@ -69,7 +74,7 @@ class RadialPlaneSweep
 
 public:
   RadialPlaneSweep( Dataset< 2 > const& input, PointIndex const max_point_id )
-    : sorted_points( input ), unsorted_points( max_point_id + 1 ) { event_q.reserve( input.size() ); }
+    : sorted_points( input ), unsorted_points( max_point_id + 1 ) {}
   ~RadialPlaneSweep() {}
 
   template < typename EventAction >
